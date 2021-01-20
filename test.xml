@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tests>
-    <test>Test1</test>
-</tests>
+<tester>
+    <tests id="tests">
+        <test>Test1</test>
+        <test id="id2">Test2</test>
+        <test>Test3</test>
+    </tests>
+    <tests>
+        <test>Test1</test>
+        <test>Test2</test>
+        <test>Test3</test>
+    </tests>
+    <tests id="tests3">
+        <test>Test1</test>
+        <test>Test2</test>
+        <test>Test3</test>
+    </tests>
+</tester>

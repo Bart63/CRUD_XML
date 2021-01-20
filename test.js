@@ -1,22 +1,25 @@
+let json;
+
 function loadDoc() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            loadTest(this);
+            loadJSON(this);
         }
     };
     xhttp.open("GET", "test.xml", true);
     xhttp.send();
 }
 
-function loadTest(xml) {
-    var i;
-    var xmlDoc = xml.responseXML;
-    var table="";
-    var x = xmlDoc.getElementsByTagName("test");
-    console.log(x);
-    for (i = 0; i <x.length; i++) {
-        table += x[i].textContent + '\n';
-    }
-    document.getElementById("tests").innerHTML = table;
+function loadJSON(xml) {
+    let dom = xml.responseXML;
+    console.log(xml.responseText)
+    let json_text = xml2json(dom);
+    json = JSON.parse(json_text);
+    toXML(json);
+}
+
+function toXML(json=json) {
+    let xml_text = json2xml(json);
+    console.log(xml_text);
 }
