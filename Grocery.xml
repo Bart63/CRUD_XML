@@ -1,0 +1,401 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<grocery>
+    <metadata>
+        <author>
+            <name>Bartosz</name>
+            <surname>Durys</surname>
+            <indexNumber>229869</indexNumber>
+        </author>
+        <lastModificationDate>06-12-2020</lastModificationDate>
+    </metadata>
+
+    <additionalData>
+        <typesList>
+            <types id="fruit">owoc</types>
+            <types id="vegetable">warzywo</types>
+        </typesList>
+        
+        <manufacturerList>
+        <manufacturerEl id="tesco">
+            <name>Tesco Polska Sp. z o.o.</name>
+            <address>
+                <street>ul. Kapelanka 56</street>
+                <postCode>30-347</postCode>
+                <city>Kraków</city>
+            </address>
+            <email>ezakupy@tesco.pl</email>
+            <telephone>800105104</telephone>
+        </manufacturerEl>
+        <manufacturerEl id="frisco">
+            <name>Frisco S.A.</name>
+            <address>
+                <street>ul. Grochowska 306/308</street>
+                <postCode>03-840</postCode>
+                <city>Warszawa</city>
+            </address>
+            <email>bok@frisco.pl</email>
+            <telephone>223315000</telephone>
+        </manufacturerEl>
+        <manufacturerEl id="carrefour">
+            <name>Carrefour Polska sp. z o.o</name>
+            <address>
+                <street>ul. Targowa 72</street>
+                <postCode>03-734</postCode>
+                <city>Warszawa</city>
+            </address>
+            <email>sklep@carrefour.pl</email>
+            <telephone>223230505</telephone>
+        </manufacturerEl>
+        <manufacturerEl id="auchan">
+            <name>Auchan Polska Sp. z o.o.</name>
+            <address>
+                <street>ul. Puławska 46</street>
+                <postCode>05-500</postCode>
+                <city>Piaseczno</city>
+            </address>
+            <email>bok.direct@auchan.pl</email>
+            <telephone>227263300</telephone>
+        </manufacturerEl>
+    </manufacturerList>
+    </additionalData>
+
+    <items>
+        <item id="I1">
+            <name>Pomidor</name>
+            <price unit="PLN/szt">1.20</price>
+            <description>
+                aromatyczny, gwarancja 100% satysfakcji
+            </description>
+            <manufacturer id="tesco"/>
+            <country>Polska</country>
+            <weight unit="kg">0.2</weight>
+            <quantity unit="kg">5</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I2">
+            <name>Papryka czerwona</name>
+            <price unit="PLN/szt">2.40</price>
+            <description>
+                słodka i krucha, gwarancja 100% satysfakcji
+            </description>
+            <manufacturer id="tesco"/>
+            <country>Holandia</country>
+            <weight unit="kg">0.24</weight>
+            <quantity unit="kg">4</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I3">
+            <name>Marchew</name>
+            <price unit="PLN/szt">0.27</price>
+            <description>
+                chrupiąca i lekko słodka, gwarancja 100% satysfakcji
+            </description>
+            <manufacturer id="tesco"/>
+            <country>Włochy</country>
+            <weight unit="kg">0.15</weight>
+            <quantity unit="kg">7</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I4">
+            <name>Cytryna</name>
+            <price unit="PLN/szt">0.75</price>
+            <description>
+                soczyste i orzeźwiające, świetne do napojów, gwarancja 100% satysfakcji
+            </description>
+            <manufacturer id="tesco"/>
+            <country>Hiszpania</country>
+            <weight unit="kg">0.15</weight>
+            <quantity unit="kg">7</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I5">
+            <name>Banany premium kiść 4-6 szt.</name>
+            <price unit="PLN/szt">0.99</price>
+            <description>
+                Banany od wielu lat są znane i doceniane przede wszystkim ze względu na
+                właściwości zdrowotne, jakie posiadają. Bardzo dobrze wpływają na układ
+                krążenia, wzmacniając serce oraz regulując ciśnienie tętnicze krwi.
+                Pozwalają spokojnie zasypiać i wzmacniają pamięć. Uodporniają organizm
+                i dostarczają sił. Są bogatym źródłem potasu oraz witamin C i E.
+            </description>
+            <manufacturer id="frisco"/>
+            <country>Kolumbia/Ekwador</country>
+            <weight unit="kg">0.2</weight>
+            <quantity unit="kg">5</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I6">
+            <name>Kaki</name>
+            <price unit="PLN/szt">4.99</price>
+            <description>
+                Kaki to owoc, który coraz częściej pojawia się na naszych stołach.
+                Powstał ze skrzyżowania się brzoskwini i jabłka - dzięki temu ma
+                niepowtarzalny słodki smak. Nie tylko elegancko wygląda, ale też
+                doskonale smakuje i jest niezwykle zdrowy.
+            </description>
+            <manufacturer id="frisco"/>
+            <country>Hiszpania</country>
+            <weight unit="kg">0.26</weight>
+            <quantity unit="kg">4</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I7">
+            <name>Dynia pomarańczowa 1 szt. (4-6kg)</name>
+            <price unit="PLN/szt">26.99</price>
+            <description>
+                Dynia jest niezwykle ceniona ze względu na swoje właściwości odżywcze.
+                Jej pestki to bogactwo nienasyconych kwasów tłuszczowych oraz witamin
+                z grupy B i C. Warzywo to zawiera węglowodany (sacharozę, glukozę),
+                białko, tłuszcz, pektyny, kwasy organiczne (cytrynowy, jabłkowy,
+                szczawiowy), B-karoten oraz witaminy: C, B1, B2, B6, PP.
+            </description>
+            <manufacturer id="frisco"/>
+            <country>Holandia</country>
+            <weight unit="kg">5</weight>
+            <quantity unit="kg">1</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I8">
+            <name>Rzodkiew biała 1-2 szt.</name>
+            <price unit="PLN/szt">2.99</price>
+            <description>
+                Biała rzodkiew kilka stuleci temu przybyła do nas z Azji Wschodniej,
+                gdzie była znana już w czasach starożytnych. Obecnie doceniana jest
+                przede wszystkim ze względu na swój wyrazisty smak i zapach. Dzięki
+                nim bardzo chętnie dodawana jest chociażby do sałatek, przystawek
+                czy kanapek.
+            </description>
+            <manufacturer id="frisco"/>
+            <country>Włochy</country>
+            <weight unit="kg">0.5</weight>
+            <quantity unit="kg">2</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I9">
+            <name>Pomidory żółte okrągłe</name>
+            <price unit="PLN/szt">4.99</price>
+            <description>
+                Żółte pomidory okrągłe to ciekawa alternatywa dla poszukiwaczy nowych
+                smaków i kuchennych eksperymentów. Nie tylko będą pięknie i oryginalnie
+                prezentować się na talerzu, ale także zaskoczą swoim nieco delikatniejszym smakiem.
+            </description>
+            <manufacturer id="frisco"/>
+            <country>Polska</country>
+            <weight unit="kg">0.5</weight>
+            <quantity unit="kg">2</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I10">
+            <name>BIO KALAREPA</name>
+            <price unit="PLN/szt">4.99</price>
+            <description>
+                Produkt pochodzący z certyfikowanych upraw ekologicznych.
+            </description>
+            <manufacturer id="carrefour"/>
+            <country>Polska</country>
+            <weight unit="kg">0.24</weight>
+            <quantity unit="kg">4</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I11">
+            <name>Ogórek długi</name>
+            <price unit="PLN/szt">2.59</price>
+            <description>
+                Świeży, smaczny, soczysty ogórek - o szerokim zastosowaniu kulinarnym.
+            </description>
+            <manufacturer id="carrefour"/>
+            <country>Hiszpania</country>
+            <weight unit="kg">0.25</weight>
+            <quantity unit="kg">4</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I12">
+            <name>Limonka</name>
+            <price unit="PLN/szt">1.59</price>
+            <description>
+                Limonka jest mniejszą siostrą cytryny. Orzeźwiająca, soczysta, o nieco
+                intensywniejszym aromacie niż jej żółta odpowiedniczka. Limonka jest na
+                ogół okrągła, w kolorach od intensywnie zielonego do zielono-żółtego.
+                Niezastąpiony składnik drinków, w tym popularnego mojito. Często
+                stosowana jest w daniach kuchni tajskiej a także jako dodatek do sosów
+                i dresingów.
+            </description>
+            <manufacturer id="carrefour"/>
+            <country>Brazylia/Meksyk</country>
+            <weight unit="kg">0.1</weight>
+            <quantity unit="kg">10</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I13">
+            <name>Jabłka Szampion</name>
+            <price unit="PLN/szt">2.50</price>
+            <description>
+                Jabłka "Jakość z Natury Carrefour" uprawiane na terenach z długoletnią
+                tradycją sadownictwa - w okolicach Grójca i w regionie Małopolski, przez
+                wyselekcjonowanych producentów. Dzięki naturalnym metodom walki ze
+                szkodnikami oraz stałej obserwacji sadów, środki ochrony roślin w uprawie są
+                wyeliminowane lub zmniejszone do minimum.
+            </description>
+            <manufacturer id="carrefour"/>
+            <country>Polska</country>
+            <weight unit="kg">0.3</weight>
+            <quantity unit="kg">3</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I14">
+            <name>Granat</name>
+            <price unit="PLN/szt">5.29</price>
+            <description>
+                Owoc o twardej, skórzastej skórce. W zależności od odmiany jego kolor jest
+                ciemnożółty do purpurowego. Wewnątrz znajduje się czerwony jadalny miąższ,
+                a w nim kilkaset jasnobrązowych pestek, również jadalnych.
+            </description>
+            <manufacturer id="carrefour"/>
+            <country>Hiszpania</country>
+            <weight unit="kg">0.2</weight>
+            <quantity unit="kg">5</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I15">
+            <name>Mango</name>
+            <price unit="PLN/szt">5.29</price>
+            <description>
+                Soczysty owoc o bardzo aromatycznym, słodkim smaku. Skórka jest cienka i gładka,
+                ale twarda - dlatego pomimo iż jest jadalna, usuwa się ją przed spożyciem. Miąższ
+                ma barwę pomarańczowo-żółtą.
+            </description>
+            <manufacturer id="carrefour"/>
+            <country>Brazylia</country>
+            <weight unit="kg">0.28</weight>
+            <quantity unit="kg">3</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I16">
+            <name>Kukurydza - kolba</name>
+            <price unit="PLN/szt">2.89</price>
+            <description>
+                Kukurydze mozna spozywac gotowana jako dodatek do dan. Coraz czesciej podaje sie
+                ja takze pieczona, grillowana lub prazona w postaci popcornu.
+            </description>
+            <manufacturer id="auchan"/>
+            <country>Polska</country>
+            <weight unit="kg">0.29</weight>
+            <quantity unit="kg">3</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I17">
+            <name>Papryka - Palermo</name>
+            <price unit="PLN/szt">5.99</price>
+            <description>
+                Come BIO
+                Papryka Palermo BIO
+                Kaliber: SC
+            </description>
+            <manufacturer id="auchan"/>
+            <country>Hiszpania</country>
+            <weight unit="kg">0.18</weight>
+            <quantity unit="kg">5</quantity>
+            <type id="vegetable"/>
+        </item>
+        <item id="I18">
+            <name>Kiwi</name>
+            <price unit="PLN/szt">1.39</price>
+            <description>
+                Kiwi to dobre źródło witamin z grupy B, kwasu cytrynowego, kwasu foliowego
+                i karotenoidów. Znajdujemy w nim także sporą ilość potasu, który stabilizuje
+                ciśnienie krwi i reguluje rytm serca
+            </description>
+            <manufacturer id="auchan"/>
+            <country>Nowa Zelandia</country>
+            <weight unit="kg">0.095</weight>
+            <quantity unit="kg">10</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I19">
+            <name>Winogrono - red globe</name>
+            <price unit="PLN/szt">3.99</price>
+            <description>
+                Winogrona zawierają dużo witamin: B, C, D, E i PP oraz mikroelementów: boru,
+                wapnia, żelaza, magnezu, potasu i miedzi, dzięki czemu dotleniają i odtruwają organizm,
+                zwiększając przy tym jego odporność. Są łatwo strawne, mają właściwości regenerujące
+            </description>
+            <manufacturer id="auchan"/>
+            <country>Włochy</country>
+            <weight unit="kg">0.5</weight>
+            <quantity unit="kg">2</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I20">
+            <name>Winogrono - jasne</name>
+            <price unit="PLN/szt">4.49</price>
+            <description>
+                Słodkie z lekko kwaskowym posmakiem, słabo wyczuwalna cierpkość skórki, soczyste, grono
+                drobne i twarde, kiść zwarta i gęsta a wszystko zapakowane w transparenty pojemnik plastikowy
+                z mocno spiętym wieczkiem.
+            </description>
+            <manufacturer id="auchan"/>
+            <country>Włochy</country>
+            <weight unit="kg">0.5</weight>
+            <quantity unit="kg">2</quantity>
+            <type id="fruit"/>
+        </item>
+        <item id="I21">
+            <name>Melon - Galia</name>
+            <price unit="PLN/szt">9.99</price>
+            <description>
+                Melon jest owocem niskokalorycznym, zawiera ok. 90% wody, znaczne ilości cukrów prostych oraz
+                sole mineralne – wapń i fosfor, witaminy z grupy B.
+            </description>
+            <manufacturer id="auchan"/>
+            <country>Brazylia</country>
+            <weight unit="kg">0.8</weight>
+            <quantity unit="kg">1</quantity>
+            <type id="fruit"/>
+        </item>
+
+        <item id="I22">
+            <name>Pigwa</name>
+            <price unit="PLN/szt">3.59</price>
+            <description>
+                Owoce pigwy zawiera dużo witaminy C oraz wiele innych witamin, a także pierwiastki mineralne,
+                które skutecznie wzmacniają odporność organizmu i wspomagają układ odpornościowy w walce z grypą
+                i przeziębieniem. Owoce pigwy zawierają wiele związków mineralnych.
+            </description>
+            <manufacturer id="auchan"/>
+            <country>Turcja</country>
+            <weight unit="kg">0.3</weight>
+            <quantity unit="kg">3</quantity>
+            <type id="fruit"/>
+        </item>
+
+        <item id="I23">
+            <name>Awokado</name>
+            <price unit="PLN/szt">6.98</price>
+            <description>
+                FreshGo
+                Awokado
+                Odmiana: Ryan
+            </description>
+            <manufacturer id="auchan"/>
+            <country>Izrael</country>
+            <weight unit="kg">0.26</weight>
+            <quantity unit="kg">3</quantity>
+            <type id="fruit"/>
+        </item>
+
+        <item id="I24">
+            <name>Gruszka</name>
+            <price unit="PLN/szt">0.89</price>
+            <description>
+                Owoc ten zawiera potas, fosfor, wapń, magnez, sód, miedź, żelazo, a także bor i jod.
+                W owocu występują kwasy owocowe (kwas jabłkowy, kwas cytrynowy), węglowodany, olejki eteryczne,
+                błonnik i pektyny. Zawiera także witaminy: A, B1, B2, B6, C i PP.
+            </description>
+            <manufacturer id="auchan"/>
+            <country>Polska</country>
+            <weight unit="kg">0.19</weight>
+            <quantity unit="kg">5</quantity>
+            <type id="fruit"/>
+        </item>
+    </items>
+</grocery>

@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+
+    <title>CRUD_XML</title>
+    <meta name="description" content="CRUD project with XML and data validation">
+    <meta name="author" content="Bartosz Durys">
+    <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+    <div class="modal">
+        <div class="modal-content">
+            <p>Zanim wejdziesz, potwierdź nazwę pliku:</p>
+            <form action="javascript:void(0);" onsubmit="loadDoc(this)">
+                <input value="Grocery.xml" pattern="^[\w,\s-]+\.xml$">
+                <input type="submit" value="Pobierz dane z pliku XML" />
+            </form>
+        </div>
+    </div>
+</body>
+<script src="modal.js"></script>
+<script src="xml2json.js"></script>
+<script src="json2xml.js"></script>
+<script src="dataHandler.js"></script>
+</html>
