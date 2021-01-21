@@ -1,2 +1,2 @@
-# CRUD_XML
-CRUD web app with XML file for data management
+# XML AJAX on web
+Load XML asynchronously, create JSON from it and let user play with its structure 
