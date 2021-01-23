@@ -24,6 +24,73 @@ function getXML() {
     return json2xml(json);
 }
 
+function saveRow(target){
+    let tr = target.parentElement.parentElement;
+    let index = tr.rowIndex-1;
+    let tableName = tr.parentElement.parentElement.id
+    let deleteEl = tableName.substring(0, tableName.indexOf("-"));
+    
+    let elements = Object.keys(json["grocery"]["additionalData"]["typesList"]);
+    elements.push(Object.keys(json["grocery"]["additionalData"]["manufacturerList"]).toString());
+    elements.push(Object.keys(json["grocery"]["items"]).toString());
+    
+    let data;
+    
+    switch (elements.indexOf(deleteEl)) {
+        case 0:
+            for(let i=0; i<2; i++)  {
+                if(!tr.children[i].firstChild.checkValidity()){
+                    alert("Dane nie waliduą się: '" + tr.children[i].firstChild.value+"'");
+                    break;
+                }
+            }
+            
+            json["grocery"]["additionalData"]["typesList"]["types"][index]["@id"] = tr.children[0].firstChild.value;
+            json["grocery"]["additionalData"]["typesList"]["types"][index]["#text"] = tr.children[1].firstChild.value;
+            
+            loadTypesTable();
+            break;
+        case 1:
+            for(let i=0; i<7; i++)  {
+                if(!tr.children[i].firstChild.checkValidity()){
+                    alert("Dane nie waliduą się: '" + tr.children[i].firstChild.value+"'");
+                    break;
+                }
+            }
+            
+            json["grocery"]["additionalData"]["manufacturerList"]["manufacturerEl"][index]["@id"] = tr.children[0].firstChild.value;
+            json["grocery"]["additionalData"]["manufacturerList"]["manufacturerEl"][index]["name"] = tr.children[1].firstChild.value;
+            json["grocery"]["additionalData"]["manufacturerList"]["manufacturerEl"][index]["email"] = tr.children[2].firstChild.value;
+            json["grocery"]["additionalData"]["manufacturerList"]["manufacturerEl"][index]["telephone"] = tr.children[3].firstChild.value;
+            json["grocery"]["additionalData"]["manufacturerList"]["manufacturerEl"][index]["address"]["city"] = tr.children[4].firstChild.value;
+            json["grocery"]["additionalData"]["manufacturerList"]["manufacturerEl"][index]["address"]["postcode"] = tr.children[5].firstChild.value;
+            json["grocery"]["additionalData"]["manufacturerList"]["manufacturerEl"][index]["address"]["street"] = tr.children[6].firstChild.value;
+            
+            loadManufacturerTable();
+            break;
+        case 2:
+            for(let i=0; i<11; i++)  {
+                if(i!=5 && !tr.children[i].firstChild.checkValidity()){
+                    alert("Dane nie waliduą się: '" + tr.children[i].firstChild.value+"'");
+                    break;
+                }
+            }
+            
+            json["grocery"]["items"]["item"][index]["@id"] = tr.children[0].firstChild.value;
+            json["grocery"]["items"]["item"][index]["name"] = tr.children[1].firstChild.value;
+            json["grocery"]["items"]["item"][index]["price"]["#text"] = tr.children[2].firstChild.value;
+            json["grocery"]["items"]["item"][index]["price"]["@unit"] = tr.children[3].firstChild.value;
+            json["grocery"]["items"]["item"][index]["description"] = tr.children[4].firstChild.value;
+            json["grocery"]["items"]["item"][index]["country"] = tr.children[6].firstChild.value;
+            json["grocery"]["items"]["item"][index]["weight"]["#text"] = tr.children[7].firstChild.value;
+            json["grocery"]["items"]["item"][index]["weight"]["@unit"] = tr.children[8].firstChild.value;
+            json["grocery"]["items"]["item"][index]["quantity"]["#text"] = tr.children[9].firstChild.value;
+            json["grocery"]["items"]["item"][index]["quantity"]["@unit"] = tr.children[10].firstChild.value;
+            
+    }
+    loadItemsTable();
+}
+
 function addRow(target) {
     let tr = target.parentElement.parentElement;
     let tableName = tr.parentElement.parentElement.id
@@ -100,14 +167,14 @@ function loadTypesTable() {
     let types = json["grocery"]["additionalData"]["typesList"]["types"];
     
     for(let i=0; i<types["length"]; i++) {
-        tableContent += "<tr name="+i+"><td>"
+        tableContent += "<tr><td>"
             +"<input value='"+types[i]["@id"]+"' pattern='[a-zA-Z0-9]+'/>"
             +"</td><td>"
             +"<input value='"+types[i]["#text"]+"' pattern='[a-zA-Z0-9]+'/>"
             +"</td><td>"
             +"<input type='button' onclick='deleteRow(this)' value='X' />"
             +"</td><td>"
-            +"<input type='button' onclick='deleteRow(this)' value='Zapisz' />"
+            +"<input type='button' onclick='saveRow(this)' value='Zapisz' />"
             +"</td></tr>";
     }
     tableContent += "<tr><td><input type='button' onclick='addRow(this)' value='Dodaj' /></td></tr>"
@@ -122,24 +189,24 @@ function loadManufacturerTable() {
     let manufacturers = json["grocery"]["additionalData"]["manufacturerList"]["manufacturerEl"];
     
     for(let i=0; i<manufacturers["length"]; i++) {
-        tableContent += "<tr name="+i+"><td>"
+        tableContent += "<tr><td>"
             +"<input value='"+manufacturers[i]["@id"]+"' pattern='[a-zA-Z0-9]+'/>"
             +"</td><td>"
-            +"<input value='"+manufacturers[i]["name"]+"' pattern='^[^#%&*:<>?/{|}].{1,}'/>"
+            +"<input value='"+manufacturers[i]["name"]+"' pattern='[^#%&*:+$@!()_<>?-]*'/>"
             +"</td><td>"
             +"<input value='"+manufacturers[i]["email"]+"' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'/>"
             +"</td><td>"
             +"<input value='"+manufacturers[i]["telephone"]+"' pattern='[1-9][0-9]{8}'/>"
             +"</td><td>"
-            +"<input value='"+manufacturers[i]["address"]["city"]+"' pattern='^[^#%&*:<>?/{|}].{1,}'/>"
+            +"<input value='"+manufacturers[i]["address"]["city"]+"' pattern='[^#%&*:+$@!()_<>?-]*'/>"
             +"</td><td>"
             +"<input value='"+manufacturers[i]["address"]["postCode"]+"' pattern='[0-9]{2}-[0-9]{3}'/>"
             +"</td><td>"
-            +"<input value='"+manufacturers[i]["address"]["street"]+"' pattern='^[^#%&*:<>?/{|}].{1,}'/>"
+            +"<input value='"+manufacturers[i]["address"]["street"]+"' pattern='[^#%&*:+$@!()_<>?-]*'/>"
             +"</td><td>"
             +"<input type='button' onclick='deleteRow(this)' value='X' />"
             +"</td><td>"
-            +"<input type='button' onclick='deleteRow(this)' value='Zapisz' />"
+            +"<input type='button' onclick='saveRow(this)' value='Zapisz' />"
             +"</td></tr>";
     }
     tableContent += "<tr><td><input type='button' onclick='addRow(this)' value='Dodaj' /></td></tr>"
@@ -171,8 +238,6 @@ function deleteRow(target){
     }
     loadItemsTable();
 }
-
-let globalKurwa;
 
 function loadItemsTable() {
     let tableEl = document.getElementById("item-grocery");
@@ -226,22 +291,22 @@ function loadItemsTable() {
         typeIndexArray.push(typeIndex);
         manufacturersIndexArray.push(manufacturerIndex);
         
-        tableContent += "<tr name="+i+"><td>"
+        tableContent += "<tr><td>"
             +"<input value='"+items[i]["@id"]+"' pattern='[a-zA-Z0-9]+'/>"
             +"</td><td>"
-            +"<input value='"+items[i]["name"]+"' pattern='[a-zA-Z0-9]*'/>"
+            +"<input value='"+items[i]["name"]+"' pattern='[^#%&*:+$@!_<>?]*'/>"
             +"</td><td>"
             +"<input value='"+items[i]["price"]["#text"]+"' pattern='[0-9]+(\.[0-9][0-9])?'/>"
             +"</td><td>"
             +"<input value='"+items[i]["price"]["@unit"]+"' pattern='[a-zA-Z/]*'/>"
             +"</td><td>"
-            +"<input value='"+items[i]["description"].trim()+"' pattern='^[^#%&*:<>?/{|}].{1,}'/>"
+            +"<input value='"+items[i]["description"].trim()+"' pattern='[^#&*+$@_<>?]*'/>"
             +"</td><td>"
             +manufacturersSelectEdit
             +"</td><td>"
-            +"<input value='"+items[i]["country"]+"' pattern='[a-zA-Z0-9]*'/>"
+            +"<input value='"+items[i]["country"]+"' pattern='[^#%&*:+$@!()_<>?-]*'/>"
             +"</td><td>"
-            +"<input value='"+items[i]["weight"]["#text"]+"' pattern='[0-9]+(\.[0-9][0-9])?'/>"
+            +"<input value='"+items[i]["weight"]["#text"]+"' pattern='[0-9]+(\.[0-9]{1,2,3})?'/>"
             +"</td><td>"
             +"<input value='"+items[i]["weight"]["@unit"]+"' pattern='[a-zA-Z/]*'/>"
             +"</td><td>"
@@ -253,7 +318,7 @@ function loadItemsTable() {
             +"</td><td>"
             +"<input type='button' onclick='deleteRow(this)' value='X' />"
             +"</td><td>"
-            +"<input type='button' onclick='deleteRow(this)' value='Zapisz' />"
+            +"<input type='button' onclick='saveRow(this)' value='Zapisz' />"
             +"</td></tr>";
     }
     tableContent += "<tr><td><input type='button' onclick='addRow(this)' value='Dodaj' /></td></tr>"
