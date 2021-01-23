@@ -42,3 +42,8 @@ body {
 input {
     border-radius: 5px;
 }
+
+th, td {
+    border-width: 1px;
+    border-style: solid;
+}
