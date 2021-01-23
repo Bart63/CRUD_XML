@@ -24,6 +24,75 @@ function getXML() {
     return json2xml(json);
 }
 
+function addRow(target) {
+    let tr = target.parentElement.parentElement;
+    let tableName = tr.parentElement.parentElement.id
+    let deleteEl = tableName.substring(0, tableName.indexOf("-"));
+    
+    let jsonType = json["grocery"]["additionalData"]["typesList"];
+    let jsonManufacturer = json["grocery"]["additionalData"]["manufacturerList"];
+    let jsonItems = json["grocery"]["items"];
+    
+    let elements = Object.keys(jsonType);
+    elements.push(Object.keys(jsonManufacturer).toString());
+    elements.push(Object.keys(jsonItems).toString());
+    
+    let value;
+    
+    switch (elements.indexOf(deleteEl)) {
+        case 0:
+            value = elements[0]+(jsonType[elements[0]].length+1);
+            json["grocery"]["additionalData"]["typesList"]["types"].push({
+                "@id" : value,
+                "#text" : value
+            });
+            loadTypesTable();
+            break;
+        case 1:
+            value = elements[1]+(jsonManufacturer[elements[1]].length+1);
+            json["grocery"]["additionalData"]["manufacturerList"]["manufacturerEl"].push({
+                "@id" : value,
+                "name" : "",
+                "email" : "",
+                "telephone" : "",
+                "address" : {
+                    "city" : "",
+                    "postCode" : "",
+                    "street" : ""
+                }
+            });
+            loadManufacturerTable();
+            break;
+        case 2:
+            value = "I"+(jsonItems[elements[2]].length+1);
+            json["grocery"]["items"]["item"].push({
+                "@id" : value,
+                "name" : "",
+                "description" : "",
+                "country" : "",
+                "type" : {
+                    "@id" : ""
+                },
+                "manufacturer" : {
+                    "@id" : ""
+                },
+                "price" : {
+                    "@unit" : "",
+                    "#text" : ""
+                },
+                "weight" : {
+                    "@unit" : "",
+                    "#text" : ""
+                },
+                "quantity" : {
+                    "@unit" : "",
+                    "#text" : ""
+                }
+            }); 
+    }
+    loadItemsTable();
+}
+
 function loadTypesTable() {
     let tableEl = document.getElementById("types-grocery");
     let tableContent = "<tr><th>ID</th><th>Nazwa</th></tr>";
@@ -41,7 +110,7 @@ function loadTypesTable() {
             +"<input type='button' onclick='deleteRow(this)' value='Zapisz' />"
             +"</td></tr>";
     }
-    tableContent += "<tr><td><input type='button' onclick='deleteRow(this)' value='Dodaj' /></td></tr>"
+    tableContent += "<tr><td><input type='button' onclick='addRow(this)' value='Dodaj' /></td></tr>"
     
     tableEl.innerHTML = tableContent;
 }
@@ -73,7 +142,7 @@ function loadManufacturerTable() {
             +"<input type='button' onclick='deleteRow(this)' value='Zapisz' />"
             +"</td></tr>";
     }
-    tableContent += "<tr><td><input type='button' onclick='deleteRow(this)' value='Dodaj' /></td></tr>"
+    tableContent += "<tr><td><input type='button' onclick='addRow(this)' value='Dodaj' /></td></tr>"
     
     tableEl.innerHTML = tableContent;
 }
@@ -187,7 +256,7 @@ function loadItemsTable() {
             +"<input type='button' onclick='deleteRow(this)' value='Zapisz' />"
             +"</td></tr>";
     }
-    tableContent += "<tr><td><input type='button' onclick='deleteRow(this)' value='Dodaj' /></td></tr>"
+    tableContent += "<tr><td><input type='button' onclick='addRow(this)' value='Dodaj' /></td></tr>"
     
     tableEl.innerHTML = tableContent;
     
