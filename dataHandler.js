@@ -306,7 +306,7 @@ function loadItemsTable() {
             +"</td><td>"
             +"<input value='"+items[i]["country"]+"' pattern='[^#%&*:+$@!()_<>?-]*'/>"
             +"</td><td>"
-            +"<input value='"+items[i]["weight"]["#text"]+"' pattern='[0-9]+(\.[0-9]{1,2,3})?'/>"
+            +"<input value='"+items[i]["weight"]["#text"]+"' pattern='[0-9]+(\.[0-9][0-9]?[0-9]?)?'/>"
             +"</td><td>"
             +"<input value='"+items[i]["weight"]["@unit"]+"' pattern='[a-zA-Z/]*'/>"
             +"</td><td>"
@@ -333,3 +333,9 @@ function loadItemsTable() {
         item.selectedIndex = manufacturersIndexArray[ind];
     });
 }
+
+let textarea = document.getElementById("XMLtextarea");
+
+document.getElementById("XMLgenerator").addEventListener("click", function() {
+    textarea.value = getXML();
+});

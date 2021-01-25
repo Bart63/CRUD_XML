@@ -8,9 +8,22 @@
     <meta name="description" content="Project with XML and data validation">
     <meta name="author" content="Bartosz Durys">
     <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    
+    <div class="panel-out">
+        <h3>Panel admina</h3>
+        <div class="panel-in">
+            <input id="types-window" type="checkbox" id="types" checked="checked"/>
+            <label for="types">Typy produktów</label><br>
+            <input id="manufacturerEl-window" type="checkbox" id="manufacturerEl" checked="checked"/>
+            <label for="manufacturerEl">Producenci</label><br>
+            <input id="item-window" type="checkbox" id="item" checked="checked"/>
+            <label for="item">Produkty</label><br>
+        </div>
+    </div>
     
     <div class="types-window">
         <div class="types-table">
@@ -33,6 +46,14 @@
         </div>
     </div>
     
+    <div class="item-window">
+        <div class="item-table">
+            <br>
+            <input id="XMLgenerator" type="button" value="Wygeneruj XML:"><br>
+            <textarea id="XMLtextarea" rows="5" cols="60" name="text" placeholder="Wygenerowany XML będzie tutaj"></textarea>
+        </div>
+    </div>
+    
     <div class="modal">
         <div class="modal-content">
             <p>Zanim wejdziesz, potwierdź nazwę pliku:</p>
@@ -47,4 +68,5 @@
 <script src="xml2json.js"></script>
 <script src="json2xml.js"></script>
 <script src="dataHandler.js"></script>
+<script src="displayHandler.js"></script>
 </html>

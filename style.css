@@ -1,0 +1,22 @@
+html {
+    background: url("cool-background.png");
+}
+
+.panel-in {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.panel-out {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}   
+
+textarea {
+    overflow-y: scroll;
+    resize: none;
+}
